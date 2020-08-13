@@ -1,7 +1,8 @@
-package com.hao.baseframe;
+package com.hao.baseframe.ui;
 
 import android.os.Bundle;
 
+import com.hao.baseframe.R;
 import com.hao.baseframe.base.BaseActivity;
 
 public class MainActivity extends BaseActivity {

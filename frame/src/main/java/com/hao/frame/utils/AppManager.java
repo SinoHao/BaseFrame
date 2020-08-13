@@ -10,6 +10,7 @@ import java.util.Stack;
  * Created by Hao on 2020/8/13
  * Activity栈管理
  */
+@SuppressWarnings("all")
 public class AppManager {
     private static Stack<Activity> activityStack;
     private Context context;
@@ -157,6 +158,8 @@ public class AppManager {
             ActivityManager activityMgr= (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
             activityMgr.restartPackage(context.getPackageName());
             System.exit(0);
-        } catch (Exception e) { }
+        } catch (Exception e) {
+
+        }
     }
 }

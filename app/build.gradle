@@ -25,6 +25,7 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
 }
 
 dependencies {
@@ -42,4 +43,7 @@ dependencies {
 
     //https://github.com/Zackratos/UltimateBarX  状态栏
     implementation 'com.zackratos.ultimatebarx:ultimatebarx:0.2.2'
+    //https://github.com/permissions-dispatcher/PermissionsDispatcher 权限申请
+    implementation 'org.permissionsdispatcher:permissionsdispatcher:4.7.0'
+    annotationProcessor 'org.permissionsdispatcher:permissionsdispatcher-processor:4.7.0'
 }
