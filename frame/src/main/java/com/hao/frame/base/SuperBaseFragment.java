@@ -13,11 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.hao.frame.R;
+import com.hao.frame.iface.IBaseFragment;
 
 /**
  * Created by Hao on 2020/8/13
+ * Activity封装基类
  */
-public abstract class SuperBaseFragment extends Fragment {
+public abstract class SuperBaseFragment extends Fragment implements IBaseFragment {
 
     private RelativeLayout mLoadingView;
     private RelativeLayout mErrorView;
@@ -48,9 +50,9 @@ public abstract class SuperBaseFragment extends Fragment {
         mLoadingView = mBaseView.findViewById(R.id.rl_loading);
         mErrorView = mBaseView.findViewById(R.id.rl_error);
 
-        setLoadingView(setLoadingViewId());
+        setLoadingView(getLoadingViewId());
 
-        setErrorView(setErrorViewId());
+        setErrorView(getLoadingViewId());
 
         mContainer.addView(mChildView);
     }
@@ -64,20 +66,12 @@ public abstract class SuperBaseFragment extends Fragment {
         mLoadingView = mBaseView.findViewById(R.id.rl_loading);
         mErrorView = mBaseView.findViewById(R.id.rl_error);
 
-        setLoadingView(setLoadingViewId());
+        setLoadingView(getLoadingViewId());
 
-        setErrorView(setErrorViewId());
+        setErrorView(getErrorViewId());
 
         mContainer.addView(mChildView);
     }
-
-    protected abstract int getContentView();
-
-    protected abstract void initView();
-
-    protected abstract int setLoadingViewId();
-
-    protected abstract int setErrorViewId();
 
     private void setLoadingView(@LayoutRes int layoutId) {
         mLoadingView.addView(LayoutInflater.from(mContext).inflate(layoutId, null));
@@ -87,19 +81,23 @@ public abstract class SuperBaseFragment extends Fragment {
         mErrorView.addView(LayoutInflater.from(mContext).inflate(layoutId, null));
     }
 
-    protected void showContent() {
+
+    @Override
+    public void showContent() {
         mChildView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
         mErrorView.setVisibility(View.GONE);
     }
 
-    protected void showContentLoading() {
+    @Override
+    public void showContentLoading() {
         mChildView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.VISIBLE);
         mErrorView.setVisibility(View.GONE);
     }
 
-    protected void showContentError() {
+    @Override
+    public void showContentError() {
         mChildView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
         mErrorView.setVisibility(View.VISIBLE);

@@ -47,17 +47,17 @@ public abstract class BaseActivity extends SuperBaseActivity {
     }
 
     @Override
-    protected void initView() {
+    public void initView() {
 
     }
 
     @Override
-    protected int getLoadingViewId() {
+    public int getLoadingViewId() {
         return R.layout.layout_loading_view;
     }
 
     @Override
-    protected int getErrorViewId() {
+    public int getErrorViewId() {
         return R.layout.layout_loading_error;
     }
 
@@ -76,6 +76,5 @@ public abstract class BaseActivity extends SuperBaseActivity {
             mLastToastTime = current;
         }
     }
-
 
 }

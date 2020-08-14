@@ -14,7 +14,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
-    protected void initView() {
+    public void initView() {
         super.initView();
     }
 }

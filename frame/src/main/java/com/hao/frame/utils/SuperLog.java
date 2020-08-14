@@ -12,7 +12,7 @@ public class SuperLog {
      * 修改关闭或打开输出
      */
     private final static boolean DEBUG = true;
-    private static final String TAG = "TAG";
+    private static final String TAG = "SuperLog";
 
     /**
      * 输出日志

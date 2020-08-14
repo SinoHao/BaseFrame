@@ -40,12 +40,12 @@ public abstract class BaseFragment extends SuperBaseFragment {
     }
 
     @Override
-    protected int setLoadingViewId() {
+    public int getLoadingViewId() {
         return R.layout.layout_loading_view;
     }
 
     @Override
-    protected int setErrorViewId() {
+    public int getErrorViewId() {
         return R.layout.layout_loading_error;
     }
 

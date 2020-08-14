@@ -12,12 +12,14 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.hao.frame.R;
+import com.hao.frame.iface.IBaseActivity;
 import com.hao.frame.utils.AppManager;
 
 /**
  * Created by Hao on 2020/8/13
+ * Fragment封装基类
  */
-public abstract class SuperBaseActivity extends AppCompatActivity {
+public abstract class SuperBaseActivity extends AppCompatActivity implements IBaseActivity {
     private RelativeLayout mLoadingView;
     private RelativeLayout mErrorView;
     private View mChildView;
@@ -77,13 +79,6 @@ public abstract class SuperBaseActivity extends AppCompatActivity {
 
     }
 
-    protected abstract void initView();
-
-    protected abstract int getLoadingViewId();
-
-    protected abstract int getErrorViewId();
-
-
     private void setLoadingView(@LayoutRes int layoutId) {
         mLoadingView.addView(LayoutInflater.from(this).inflate(layoutId, null));
     }
@@ -92,19 +87,22 @@ public abstract class SuperBaseActivity extends AppCompatActivity {
         mErrorView.addView(LayoutInflater.from(this).inflate(layoutId, null));
     }
 
-    protected void showContent() {
+    @Override
+    public void showContent() {
         mChildView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
         mErrorView.setVisibility(View.GONE);
     }
 
-    protected void showContentLoading() {
+    @Override
+    public void showContentLoading() {
         mChildView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.VISIBLE);
         mErrorView.setVisibility(View.GONE);
     }
 
-    protected void showContentError() {
+    @Override
+    public void showContentError() {
         mChildView.setVisibility(View.GONE);
         mLoadingView.setVisibility(View.GONE);
         mErrorView.setVisibility(View.VISIBLE);
@@ -141,7 +139,7 @@ public abstract class SuperBaseActivity extends AppCompatActivity {
     /**
      * 获取状态栏高度
      *
-     * @return
+     * @return 状态栏高度
      */
     protected int getStatusBarHeight() {
         int id = getResources().getIdentifier(
