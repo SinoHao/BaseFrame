@@ -17,7 +17,7 @@ import com.hao.frame.utils.AppManager;
 
 /**
  * Created by Hao on 2020/8/13
- * Fragment封装基类
+ * Activity封装基类
  */
 public abstract class SuperBaseActivity extends AppCompatActivity implements IBaseActivity {
     private RelativeLayout mLoadingView;

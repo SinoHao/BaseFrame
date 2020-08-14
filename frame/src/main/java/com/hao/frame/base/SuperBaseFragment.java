@@ -17,7 +17,7 @@ import com.hao.frame.iface.IBaseFragment;
 
 /**
  * Created by Hao on 2020/8/13
- * Activity封装基类
+ * Fragment封装基类
  */
 public abstract class SuperBaseFragment extends Fragment implements IBaseFragment {
 
