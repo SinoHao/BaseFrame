@@ -130,4 +130,15 @@ public abstract class SuperBaseFragment extends Fragment implements IBaseFragmen
     protected View getBaseView() {
         return mBaseView;
     }
+
+    /**
+     * 获取状态栏高度
+     *
+     * @return 状态栏高度
+     */
+    protected int getStatusBarHeight() {
+        int id = getResources().getIdentifier(
+                "status_bar_height", "dimen", "android");
+        return id > 0 ? getResources().getDimensionPixelSize(id) : id;
+    }
 }
