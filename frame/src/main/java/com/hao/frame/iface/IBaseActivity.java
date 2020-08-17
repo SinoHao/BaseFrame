@@ -1,7 +1,7 @@
 package com.hao.frame.iface;
 
 /**
- * Created by Hao on 2020/8/14
+ * Created by Hao on 2020/8/15
  */
 public interface IBaseActivity {
 
